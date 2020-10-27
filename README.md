@@ -19,7 +19,15 @@ Any blocklet name with `Starter` means this blocklet is a starter template or a 
 
 
 
-## How to contribute 
+
+
+## Contributing
+
+Development happens on GitHub for the specification. Issues are used to track
+bugs and actionable items.
+
+The specification and code is licensed under the Apache 2.0 license found in the
+[LICENSE](LICENSE) file.
 
 
 | Metadata |                  |
