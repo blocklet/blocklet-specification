@@ -17,6 +17,9 @@ Any blocklet name with `Example` means this blocklet is built as an example to s
 
 Any blocklet name with `Starter` means this blocklet is a starter template or a boilerplate template for developers to quickly get started. The starter blocklets may include popular frameworks, tools, library code etc inside and ready to run but usually does not contain any specific features. 
 
+- Deployer
+
+Any blocklet name with `Deployer` means this blocklet is actually wrapped another project which makes it easy to deploy with ABT Node just like a native blocklet. e.g. we make Discourse, Wordpress just like a blocklet through the deployers. 
 
 
 
