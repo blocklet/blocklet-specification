@@ -7,11 +7,11 @@ All blocklets under github.com/blocklet organization follow those naming rules:
 
 - DEMO
 
-Any blocklet name with `DEMO` means this blocklet is built for simple demo purpose, usually the project itself is just the minimal barebone of the scaffold code. 
+Any blocklet name with `DEMO` means this blocklet is built for simple demo purpose, usually the project itself is just the minimal barebone of the scaffold code. `Demo` blocklets have no useful features, only for demo.   
 
 - Example 
 
-Any blocklet name with `Example` means this blocklet is built as an example to showcase the capability of ABT Node and Blocklet framework. The `Example` blocklets usually have more features than `Demo` blocklets, but may not stand for production quality. 
+Any blocklet name with `Example` means this blocklet is built as an example to showcase the capability of ABT Node and Blocklet framework. The `Example` blocklets usually have useful features than those `Demo` blocklets, but may not stand for production quality. 
 
 - Starter
 
