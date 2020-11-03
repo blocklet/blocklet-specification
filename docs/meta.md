@@ -1,3 +1,10 @@
+---
+TOCTitle: Blocklet Meta Specification
+PageTitle: blocklet.yml reference
+MetaDescription: Blocklet Meta Specification and blocklet.yml reference
+DateApproved: 
+---
+
 # Blocklet Meta Specification
 
 This document describes how to define a blocklet that can be find/installed/managed by **ABT Node**.
