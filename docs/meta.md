@@ -66,6 +66,15 @@ This document describes how to define a blocklet that can be find/installed/mana
 | engine.script                  | String   | Yes       | Script to start the blocklet in production mode           | Should point to a file in blocklet bundle                                                          | Draft  |
 | engine.args                    | String   | Yes       | Arguments to start the blocklet script                    |                                                                                                    | Draft  |
 | engine.platform                | String   | No        | Which platform can use this script                        |                                                                                                    | Draft  |
+|                                |          |           |                                                           |                                                                                                    | Draft  |
+| dist                           | Object   | No        | Blocklet distribution info                                |                                                                                                    | Draft  |
+| dist.tarball                   | String   | Yes       | URL to download the blocklet tarball                      | Can use npm registry underlying, but can support any valid url                                     | Draft  |
+| dist.integrity                 | String   | Yes       | Used to verify the download                               | Refer to [SRI](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity)        | Draft  |
+| dist.file_count                | Number   | Yes       | Files included in the bundle                              |                                                                                                    | Draft  |
+| dist.unpacked_size             | Number   | Yes       | Size on disk of the package when unpacked.                |                                                                                                    | Draft  |
+| dist.registry_pk               | String   | No        | Public key of the registry                                |                                                                                                    | Draft  |
+| dist.registry_did              | String   | No        | DID of the registry                                       |                                                                                                    | Draft  |
+| dist.registry_sig              | String   | No        | Signature for the blocklet by the registry                |                                                                                                    | Draft  |
 
 ## Blocklet DID Generation
 
