@@ -99,6 +99,16 @@ A blocklet bundle is a tarball consists of following files:
 - `blocklet.md`: blocklet documentation, on how to use the blocklet
 - `screenshots`: blocklet screenshots, all live in one folder
 
+## Blocklet Consumption Workflow
+
+- init: blocklet.yml
+- bundle: create blocklet bundle, generate and inject dist integrity
+- publish: verify the bundle, append registry signature
+- install
+  - fetch meta from registry
+  - download and verify bundle
+  - expand and run the bundle
+
 ## Meta
 
 | Metadata |                  |
