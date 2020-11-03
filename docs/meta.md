@@ -78,6 +78,8 @@ This document describes how to define a blocklet that can be find/installed/mana
 | dist.registry_did              | String   | No        | DID of the registry                                       |                                                                                                    | Draft  |
 | dist.registry_sig              | String   | No        | Signature for the blocklet by the registry                |                                                                                                    | Draft  |
 
+> For integrity generating and verifying, we can leverage the [ssri](https://www.npmjs.com/package/ssri) package.
+
 ## Blocklet DID Generation
 
 1. Take `name` field from blocklet meta
