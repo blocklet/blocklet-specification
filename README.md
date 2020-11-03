@@ -1,7 +1,19 @@
 # Blocklet Specification Documents
 
+You've found the Blocklet Sepecification documentation GitHub repository, which contains the content for the [Blocklet documentation](https://blocklet.dev/docs).
 
-## Naming under github.com/blocklet
+Topics submitted here will be published to the [Blocklet](https://blocklet.dev) portal.
+
+If you are looking for the Blocklet GitHub repository, you can find it [here](https://github.com/blocklet).
+
+## Index
+
+1. [Blocklet Naming](#blocklet-naming)
+2. [Feedback](#feedback)
+3. [Documentation Issues](#documentation-issues)
+4. [Contributing to the documentation](#contributing)
+
+## Blocklet Naming
 
 All blocklets under github.com/blocklet organization follow those naming rules:
 
@@ -23,11 +35,20 @@ Any blocklet name with `Deployer` means this blocklet is actually wrapped anothe
 
 
 
+## Feedback
+
+If you want to give documentation feedback, please use the feedback control located at the bottom of each documentation page.
+
+## Documentation Issues
+
+To enter documentation bugs, please create a [new GitHub issue](https://github.com/blocklet/blocklet-specification/issues). Please check if there is an existing issue first.
+
+If you think the issue is with the Blocklet  itself, please enter issues in the each blocklet repo.
 
 ## Contributing
 
-Development happens on GitHub for the specification. Issues are used to track
-bugs and actionable items.
+To contribute new topics/information or make changes to existing documentation, please read the [Contributing Guideline](./CONTRIBUTING.md#contributing).
+
 
 The specification and code is licensed under the Apache 2.0 license found in the
 [LICENSE](LICENSE) file.
