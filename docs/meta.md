@@ -4,9 +4,9 @@ This document describes how to define a blocklet that can be find/installed/mana
 
 ## Basic Requirements
 
-- A blocklet meta file is noted as `blocklet.yml` within the root directory of the published blocklet tarball.
-- A blocklet can only be published and consumed in a blocklet bundle format, ABT Node does not helps on blocklet bundling
-- A blocklet registry can aggregate meta information of many blocklets to make it easier to find/publish blocklets
+- A blocklet meta file should be named `blocklet.yml`, and live within the root directory of the published blocklet bundle
+- A blocklet can only be published and consumed in a blocklet bundle format, ABT Node does not handle blocklet bundling
+- A blocklet registry can aggregate meta from many blocklets to make it easier for ABT Node to find/install blocklets
 
 ## Blocklet Definition
 
