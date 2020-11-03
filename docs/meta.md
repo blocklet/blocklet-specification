@@ -4,25 +4,25 @@ This document describes how to define a blocklet that can be find/installed/mana
 
 ## Basic Requirements
 
-- A blocklet meta file should be named `blocklet.yml`, and live within the root directory of the published blocklet bundle
-- A blocklet can only be published and consumed in a blocklet bundle format, ABT Node does not handle blocklet bundling
-- A blocklet registry can aggregate meta from many blocklets to make it easier for ABT Node to find/install blocklets
+- A blocklet meta file is noted as `blocklet.yml` within the root directory of the published blocklet tarball.
+- A blocklet can only be published and consumed in a blocklet bundle format, ABT Node does not help with blocklet bundling.
+- A blocklet registry can aggregate meta information of many blocklets to make it easier to find/publish blocklets.
 
 ## Blocklet Definition
 
 | Field                          | Type     | Required? | Description                                               | Memo                                                                                               | Status |
 | ------------------------------ | -------- | --------- | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ------ |
-| did                            | String   | Yes       | The DID of the blocklet                                   | Derived from blocklet name                                                                         | Draft  |
-| name                           | String   | Yes       | The name of the blocklet                                  | Usually in snake case                                                                              | Draft  |
+| did                            | String   | Yes       | The DID of the blocklet                                   | Derived from blocklet name and represents the immutable decentralized identity address of the Blocklet                                                                        | Draft  |
+| name                           | String   | Yes       | The name of the blocklet                                  | Usually in snake_case                                                                              | Draft  |
 | title                          | String   | No        | The human readable name of the blocklet                   | Defaults to title if not specified                                                                 | Draft  |
 | description                    | String   | Yes       | The description of the blocklet                           | Displayed in marketplace                                                                           | Draft  |
 | version                        | String   | Yes       | The version of the blocklet                               | Should be versioned according to [semver](https://semver.org/)                                     | Draft  |
 | group                          | Enum     | Yes       | The type of the blocklet, can be `dapp/static`            | Critical for ABT Node to decide how to mange the blocklet                                          | Draft  |
-| provider                       | Enum     | Yes       | The provider of the blocklet, can be `arcblock/community` | Just for display purpose                                                                           | Draft  |
+| provider                       | Enum     | Yes       | The provider of the blocklet, can be `arcblock/community` | Just for display purposes                                                                           | Draft  |
 | main                           | String   | Yes       | The entry point of the blocklet                           | Should point to the static folder for static blocklets, and the executable file for dapp blocklets | Draft  |
 | logo                           | String   | No        | The logo of the blocklet                                  | Should point to a file in blocklet package                                                         | Draft  |
 | keywords                       | [String] | No        | The keywords of the blocklet                              | Parsed from `package.json`                                                                         | Draft  |
-| author                         | String   | No        | The author info of the blocklet, name, email, etc         | Parsed from `package.json`                                                                         | Draft  |
+| author                         | String   | No        | The author info of the blocklet, ex. name, email, etc     | Parsed from `package.json`                                                                         | Draft  |
 | support                        | String   | No        | How to get support with the blocklet                      | Parsed from `package.json`                                                                         | Draft  |
 | homepage                       | String   | No        | Home page of the blocklet                                 | Parsed from `package.json`                                                                         | Draft  |
 | community                      | String   | No        | URL of the blocklet community                             | Such as https://community.arcblockio.cn                                                            | Draft  |
@@ -44,10 +44,10 @@ This document describes how to define a blocklet that can be find/installed/mana
 | repository.type                | String   | No        | Repository type, can be `git`                             |                                                                                                    | Draft  |
 | repository.url                 | String   | No        | Repository URL                                            |                                                                                                    | Draft  |
 |                                |          |           |                                                           |                                                                                                    | Draft  |
-| charging                       | Object   | No        | A place holder for charging related                       |                                                                                                    | Draft  |
-| charging.price                 | Number   | No        | The price of the blocklet, default to 0                   |                                                                                                    | Draft  |
+| charging                       | Object   | No        | A place holder for charging related requirements          |                                                                                                    | Draft  |
+| charging.price                 | Number   | No        | The price of the blocklet, default is 0                   |                                                                                                    | Draft  |
 |                                |          |           |                                                           |                                                                                                    | Draft  |
-| stats                          | Object   | No        | A place holder for statistics related                     |                                                                                                    | Draft  |
+| stats                          | Object   | No        | A place holder for statistics related info                |                                                                                                    | Draft  |
 | stats.downloads                | Number   | No        | The download count                                        | Parsed from npm registry                                                                           | Draft  |
 | stats.updated_at               | Date     | No        | Last update time                                          | Parsed from npm registry                                                                           | Draft  |
 |                                |          |           |                                                           |                                                                                                    | Draft  |
@@ -70,7 +70,7 @@ This document describes how to define a blocklet that can be find/installed/mana
 | engine.platform                | String   | No        | Which platform can use this script                        |                                                                                                    | Draft  |
 |                                |          |           |                                                           |                                                                                                    | Draft  |
 | dist                           | Object   | No        | Blocklet distribution info                                |                                                                                                    | Draft  |
-| dist.tarball                   | String   | Yes       | URL to download the blocklet tarball                      | Can use npm registry underlying, but can support any valid url                                     | Draft  |
+| dist.tarball                   | String   | Yes       | URL to download the blocklet tarball                      | Can use underlying npm registry, but can support any valid url                                     | Draft  |
 | dist.integrity                 | String   | Yes       | Used to verify the download                               | Refer to [SRI](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity)        | Draft  |
 | dist.file_count                | Number   | Yes       | Files included in the bundle                              |                                                                                                    | Draft  |
 | dist.unpacked_size             | Number   | Yes       | Size on disk of the package when unpacked.                |                                                                                                    | Draft  |
@@ -84,7 +84,7 @@ This document describes how to define a blocklet that can be find/installed/mana
 
 1. Take `name` field from blocklet meta
 2. Create buffer from name: `Buffer.from(name, 'utf8')`
-3. Use buffer as public-key to generate did: `fromPublicKey(buffer, { role: types.RoleType.Any })
+3. Use buffer as the public-key to generate the did: `fromPublicKey(buffer, { role: types.RoleType.Any })
 
 ## Blocklet Bundle Format
 
@@ -98,16 +98,6 @@ A blocklet bundle is a tarball consists of following files:
 - `blocklet.zip`: if the blocklet is bundled in `zip` mode, this file must exist, the the `main` field of blocklet meta should point to this file
 - `blocklet.md`: blocklet documentation, on how to use the blocklet
 - `screenshots`: blocklet screenshots, all live in one folder
-
-## Blocklet Consumption Workflow
-
-- init: blocklet.yml
-- bundle: create blocklet bundle, generate and inject dist integrity
-- publish: verify the bundle, append registry signature
-- install
-  - fetch meta from registry
-  - download and verify bundle
-  - expand and run the bundle
 
 ## Meta
 
