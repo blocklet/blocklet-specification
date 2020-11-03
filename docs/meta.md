@@ -69,11 +69,24 @@ This document describes how to define a blocklet that can be find/installed/mana
 
 ## Blocklet DID Generation
 
-> TODO
+1. Take `name` field from blocklet meta
+2. Create buffer from name: `Buffer.from(name, 'utf8')`
+3. Use buffer as public-key to generate did: `fromPublicKey(buffer, { role: types.RoleType.Any })
 
-## Blocklet Bundle Process
+## Blocklet Bundle Format
 
-> TODO
+Blocklet bundles can be published to a blocklet registry, or deployed directly to a running ABT Node instance.
+
+A blocklet bundle is a tarball consists of following files:
+
+- `blocklet.yml`: the blocklet meta file
+- `logo.jpg|png|svg`: should be exactly the same file of `logo` field from blocklet meta
+- `blocklet.js`: if the blocklet is bundled in `webpack` mode, this file is the webpack output file
+- `blocklet.zip`: if the blocklet is bundled in `zip` mode, this file must exist, the the `main` field of blocklet meta should point to this file
+- `blocklet.md`: blocklet documentation, on how to use the blocklet
+- `screenshots`: blocklet screenshots, all live in one folder
+
+## Meta
 
 | Metadata |                  |
 | -------- | ---------------: |
