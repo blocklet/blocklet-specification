@@ -77,29 +77,40 @@ This document describes how to define a blocklet that can be find/installed/mana
 | `requirements.abtnode`    | String        | No        | Required abtnode version to run on                                | Default to ">=v1.1.0"                                                                                  | Final  |
 | `requirements.os`         | String        | No        | Required os to run on                                             | Default to "\*", can be list of value from `process.platform`                                          | Final  |
 | `requirements.cpu`        | String        | No        | Required cpu architecture to run on                               | Default to "\*", can be list of value from `process.arch`                                              | Final  |
-| `scripts`                 | [Object]      | No        | For none-node.js blocklets                                        |                                                                                                        | Draft  |
-| `script.name`             | Enum          | Yes       | `dev/start/build`                                                 | Should point to a file in blocklet bundle                                                              | Draft  |
-| `script.command`          | String        | Yes       | Script to start the blocklet in production mode                   | Should point to a file in blocklet bundle                                                              | Draft  |
-| `script.platform`         | String        | No        | `mac/linux`                                                       |                                                                                                        | Draft  |
+| `charging`                | Object        | No        | A place holder for charging related requirements                  |                                                                                                        | Final  |
+| `charging.price`          | Number        | No        | The price of the blocklet in ABT                                  | Default to 0                                                                                           | Final  |
+| `charging.tokens`         | Array         | No        | The price of the blocklet in tokens                               | Default to empty list                                                                                  | Final  |
+| `charging.tokens.price`   | Number        | No        | The price of the blocklet in none-ABT Token                       |                                                                                                        | Final  |
+| `charging.tokens.address` | String        | No        | The token address                                                 |                                                                                                        | Final  |
+| `charging.shares`         | Array         | No        | The blocklet shares                                               | The shares is decided by developer, but registry/marketplace can decide whether accept it or not       | Final  |
+| `charging.shares.name`    | String        | No        | The name of the party that have this share                        |                                                                                                        | Final  |
+| `charging.shares.address` | String        | No        | The address of the party that have this share                     | This address will receive token on blocklet purchase                                                   | Final  |
+| `charging.shares.share`   | Number        | No        | The share ratio                                                   | Should between 0 ~ 1                                                                                   | Final  |
 
 > For integrity generating and verifying, we can leverage the [ssri](https://www.npmjs.com/package/ssri) package.
+
+## Blocklet CLI Extras
+
+Following fields are appended to the blocklet meta before blocklet published to registry.
+
+| Field        | Type   | Required? | Description                                                | Memo | Status |
+| ------------ | ------ | --------- | ---------------------------------------------------------- | ---- | ------ |
+| `nftFactory` | String | No        | The NFT factory address for user to purchase this blocklet |      | Final  |
 
 ## Blocklet Registry Extras
 
 Following fields are appended to the blocklet meta after blocklet published to registry.
 
-| Field                | Type   | Required? | Description                                      | Memo                                                                                        | Status |
-| -------------------- | ------ | --------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------- | ------ |
-| `dist`               | Object | No        | Blocklet distribution info                       |                                                                                             | Final  |
-| `dist.tarball`       | String | Yes       | URL to download the blocklet tarball             | Can use underlying npm registry, but can support any valid url                              | Final  |
-| `dist.integrity`     | String | Yes       | Used to verify the download                      | Refer to [SRI](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) | Final  |
-| `dist.file_count`    | Number | Yes       | Files included in the bundle                     |                                                                                             | Draft  |
-| `dist.unpacked_size` | Number | Yes       | Size on disk of the package when unpacked.       |                                                                                             | Draft  |
-| `charging`           | Object | No        | A place holder for charging related requirements |                                                                                             | Draft  |
-| `charging.price`     | Number | No        | The price of the blocklet, default is 0          |                                                                                             | Draft  |
-| `stats`              | Object | No        | A place holder for statistics related info       |                                                                                             | Draft  |
-| `stats.downloads`    | Number | No        | The download count                               | Parsed from npm registry                                                                    | Draft  |
-| `stats.updated_at`   | Date   | No        | Last update time                                 | Parsed from npm registry                                                                    | Draft  |
+| Field                | Type   | Required? | Description                                | Memo                                                                                        | Status |
+| -------------------- | ------ | --------- | ------------------------------------------ | ------------------------------------------------------------------------------------------- | ------ |
+| `dist`               | Object | No        | Blocklet distribution info                 |                                                                                             | Final  |
+| `dist.tarball`       | String | Yes       | URL to download the blocklet tarball       | Can use underlying npm registry, but can support any valid url                              | Final  |
+| `dist.integrity`     | String | Yes       | Used to verify the download                | Refer to [SRI](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) | Final  |
+| `dist.file_count`    | Number | Yes       | Files included in the bundle               |                                                                                             | Draft  |
+| `dist.unpacked_size` | Number | Yes       | Size on disk of the package when unpacked. |                                                                                             | Draft  |
+| `stats`              | Object | No        | A place holder for statistics related info |                                                                                             | Draft  |
+| `stats.downloads`    | Number | No        | The download count                         | Parsed from npm registry                                                                    | Draft  |
+| `stats.updated_at`   | Date   | No        | Last update time                           | Parsed from npm registry                                                                    | Draft  |
 
 ## Blocklet DID Generation
 
