@@ -24,7 +24,7 @@ This document describes how to define a blocklet that can be find/installed/mana
 | `title`                   | String        | No        | The human readable name of the blocklet                           | Defaults to title if not specified                                                                     | Final  |
 | `description`             | String        | Yes       | The description of the blocklet                                   | Displayed in marketplace                                                                               | Final  |
 | `version`                 | String        | Yes       | The version of the blocklet                                       | Should be versioned according to [semver](https://semver.org/)                                         | Final  |
-| `group`                   | Enum          | Yes       | The type of the blocklet, can be `dapp/static`                    | Critical for ABT Node to decide how to mange the blocklet                                              | Draft  |
+| `group`                   | Enum          | Yes       | The type of the blocklet, can be `dapp/static/gateway`            | Critical for ABT Node to decide how to mange the blocklet                                              | Draft  |
 | `category`                | Enum          | Yes       | The category of the blocklet                                      | Not implemented yet                                                                                    | TODO   |
 | `main`                    | String        | Yes       | The entry point of the blocklet                                   | Should point to the static folder for static blocklets, and the executable file for dapp blocklets     | TODO   |
 | `logo`                    | String        | No        | The logo of the blocklet                                          | Should point to a file in blocklet package                                                             | Final  |
@@ -86,6 +86,17 @@ This document describes how to define a blocklet that can be find/installed/mana
 | `charging.shares.name`    | String        | No        | The name of the party that have this share                        |                                                                                                        | Final  |
 | `charging.shares.address` | String        | No        | The address of the party that have this share                     | This address will receive token on blocklet purchase                                                   | Final  |
 | `charging.shares.share`   | Number        | No        | The share ratio                                                   | Should between 0 ~ 1                                                                                   | Final  |
+| `capabilities`            | Object        | No        |                                                                   |                                                                                                        | Final  |
+| `capabilities.clusterMode`| Boolean       | No        | Whethre the blocklet can startup in cluster mode                  | Default to false                                                                                       | Final  |
+| `children`                | Array         | No        |                                                                   |                                                                                                        | Final  |
+| `children.name`           | String        | Yes       | The name of the child blocklet                                    |                                                                                                        | Final  |
+| `children.resolved`       | String        | Yes       | URL to download the blocklet meta                                 |                                                                                                        | Final  |
+| `children.mountPoints`    | Array         | No        | How to mount interface from child blocklet to root blocklet       |                                                                                                        | Final  |
+| `children.mountPoints.root` | Object      | Yes       | The intreface of the root blocklet                                |                                                                                                        | Final  |
+| `children.mountPoints.root.interfaceName` | String | Yes | The name of the interface                                      | Should exist in the `interfaces` of the root blocklet                                                  | Final  |
+| `children.mountPoints.root.prefix` | String | Yes     | the prefix base on the endpoint of the interface                  |                                                                                                        | Final  |
+| `children.mountPoints.child` | Object     | Yes       | The intreface of the child blocklet                               |                                                                                                        | Final  |
+| `children.mountPoints.child.interfaceName` | String   | Yes | The name of the interface                                   | Should exist in the `interfaces` of the child blocklet                                                 | Final  |
 
 > For integrity generating and verifying, we can leverage the [ssri](https://www.npmjs.com/package/ssri) package.
 
@@ -122,7 +133,7 @@ Following fields are appended to the blocklet meta after blocklet published to r
 
 | Metadata |                  |
 | -------- | ---------------: |
-| Version  |            0.0.2 |
+| Version  |            1.1.1 |
 | Status   | Work in progress |
 | Created  |       2020-11-03 |
-| Updated  |       2020-11-24 |
+| Updated  |       2021-04-23 |
