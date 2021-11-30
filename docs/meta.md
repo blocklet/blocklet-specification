@@ -38,7 +38,7 @@ This document describes how to define a blocklet that can be find/installed/mana
 | `files`                   | [String]      | No        | Files to be included in the blocklet bundle                       | Default blocklet related files are included automatically, such as `blocklet.js/zip/md`                | Final  |
 |                           |               |           |                                                                   |                                                                                                        |        |
 | `interfaces`              | [Object]      | Yes       |                                                                   |                                                                                                        | Final  |
-| `interface.type`          | Enum          | Yes       | The type of the interface                                         | Can be `web` or `service`                                                                              | Final  |
+| `interface.type`          | Enum          | Yes       | The type of the interface                                         | Can be `web` or `service` or `wellknown`. A blocklet can only declare one `web` interface                                                                             | Final  |
 | `interface.name`          | String        | Yes       | The name of the interface                                         | Must be unique within the blocklet                                                                     | Final  |
 | `interface.path`          | String        | Yes       | The pathname of the interface                                     | Default to `/`                                                                                         | Final  |
 | `interface.prefix`        | String        | No        | Does the interface support dynamic path prefix                    | Can be `*` or any valid path name, `*` means dynamic path prefix is supported                          | Final  |
@@ -74,7 +74,7 @@ This document describes how to define a blocklet that can be find/installed/mana
 | `timeout`                 | Object        | No        | Timeout configuration for blocklet                                |                                                                                                        | Final  |
 | `timeout.start`           | Number        | No        | Blocklet start timeout in seconds                                 | Default to 10 seconds, max allowed is 600 seconds                                                      | Final  |
 | `requirements`            | [Object]      | No        | Runtime configuration that can be customized for blocklet         |                                                                                                        | Final  |
-| `requirements.abtnode`    | String        | No        | Required abtnode version to run on                                | Default to ">=v1.1.0"                                                                                  | Final  |
+| `requirements.abtnode`    | String        | No        | Required abtnode version to run on                                | Default to ">=v1.5.15"                                                                                  | Final  |
 | `requirements.os`         | String        | No        | Required os to run on                                             | Default to "\*", can be list of value from `process.platform`                                          | Final  |
 | `requirements.cpu`        | String        | No        | Required cpu architecture to run on                               | Default to "\*", can be list of value from `process.arch`                                              | Final  |
 | `charging`                | Object        | No        | A place holder for charging related requirements                  |                                                                                                        | Final  |
@@ -133,7 +133,7 @@ Following fields are appended to the blocklet meta after blocklet published to r
 
 | Metadata |                  |
 | -------- | ---------------: |
-| Version  |            1.1.1 |
+| Version  |            1.2.0 |
 | Status   | Work in progress |
 | Created  |       2020-11-03 |
-| Updated  |       2021-04-23 |
+| Updated  |       2021-11-30 |
