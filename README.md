@@ -23,7 +23,7 @@ Any blocklet name with `DEMO` means this blocklet is built for simple demo purpo
 
 - Example 
 
-Any blocklet name with `Example` means this blocklet is built as an example to showcase the capability of ABT Node and Blocklet framework. The `Example` blocklets usually have useful features than those `Demo` blocklets, but may not stand for production quality. 
+Any blocklet name with `Example` means this blocklet is built as an example to showcase the capability of Blocklet Server and Blocklet framework. The `Example` blocklets usually have useful features than those `Demo` blocklets, but may not stand for production quality. 
 
 - Starter
 
@@ -31,7 +31,7 @@ Any blocklet name with `Starter` means this blocklet is a starter template or a 
 
 - Deployer
 
-Any blocklet name with `Deployer` means this blocklet is actually wrapped another project which makes it easy to deploy with ABT Node just like a native blocklet. e.g. we make Discourse, Wordpress just like a blocklet through the deployers. 
+Any blocklet name with `Deployer` means this blocklet is actually wrapped another project which makes it easy to deploy with Blocklet Server just like a native blocklet. e.g. we make Discourse, Wordpress just like a blocklet through the deployers. 
 
 
 

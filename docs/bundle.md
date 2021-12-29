@@ -1,7 +1,7 @@
 
 # Blocklet Bundle Format
 
-Blocklet bundles can be published to a blocklet registry, or deployed directly to a running ABT Node instance.
+Blocklet bundles can be published to a blocklet registry, or deployed directly to a running Blocklet Server instance.
 
 A blocklet bundle is a tarball consists of following files:
 
