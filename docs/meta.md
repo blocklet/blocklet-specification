@@ -38,13 +38,17 @@ This document describes how to define a blocklet that can be find/installed/mana
 | `files`                                    | [String]      | No        | Files to be included in the blocklet bundle                       | Default blocklet related files are included automatically, such as `blocklet.js/zip/md`                | Final  |
 |                                            |               |           |                                                                   |                                                                                                        |        |
 | `interfaces`                               | [Object]      | Yes       |                                                                   |                                                                                                        | Final  |
-| `interface.type`                           | Enum          | Yes       | The type of the interface                                         | Can be `web` or `service` or `wellknown`. A blocklet can only declare one `web` interface              | Final  |
+| `interface.type`                           | Enum          | Yes       | The type of the interface                                         | Can be `web` or `
+` or `wellknown`. A blocklet can only declare one `web` interface              | Final  |
 | `interface.name`                           | String        | Yes       | The name of the interface                                         | Must be unique within the blocklet                                                                     | Final  |
 | `interface.path`                           | String        | Yes       | The pathname of the interface                                     | Default to `/`                                                                                         | Final  |
 | `interface.prefix`                         | String        | No        | Does the interface support dynamic path prefix                    | Can be `*` or any valid path name, `*` means dynamic path prefix is supported                          | Final  |
 | `interface.port`                           | String/Object | No        | Which port the interface is served from the blocklet              | If the port is specified with a string, it's the port name, default to `BLOCKLET_PORT`                 | Final  |
 | `interface.port.internal`                  | Number        | No        | Which port the interface is served from the blocklet              | If the port is specified with a string, it's the port name                                             | Final  |
 | `interface.port.external`                  | Number        | No        | Which port the service should be exposed on                       | If the port is specified with a object, it is required                                                 | Final  |
+| `interface.services`                       | Array         | No        | Which services are enabled by the blocklet                        |                                                                                                       | Final  |
+| `interface.service.name`                   | String        | No        | The name of the service                                           |                                                                                                       | Final  |
+| `interface.service.config`                 | Object        | No        | The configuration of the service                                  |                                                                                                       | Final  |
 | `scripts`                                  | Object        | No        | Defines blocklet lifecycle scripts                                |                                                                                                        | Final  |
 | `scripts.dev`                              | String        | No        | Script to run the blocklet in dev mode                            | Must be set if you want users to run `blocklet dev` with your blocklet                                 | Final  |
 | `scripts.preInstall`                       | String        | No        | Script to run before install the blocklet                         | Can use this to check environment requirements                                                         | Final  |
@@ -88,15 +92,12 @@ This document describes how to define a blocklet that can be find/installed/mana
 | `payment.share.value`                      | Number        | No        | The share ratio                                                   | Should between 0 ~ 1                                                                                   | Final  |
 | `capabilities`                             | Object        | No        |                                                                   |                                                                                                        | Final  |
 | `capabilities.clusterMode`                 | Boolean       | No        | Whether the blocklet can startup in cluster mode                  | Default to false                                                                                       | Final  |
-| `children`                                 | Array         | No        |                                                                   |                                                                                                        | Final  |
+| `capabilities.component`                   | Boolean       | No        | Can the blocklet become a component and be composed by other blocklets | Default to true                                                                                       | Final  |
+| `children`                                 | Array         | No        | Which blocklets to combine with                                   |                                                                                                        | Final  |
 | `children.name`                            | String        | Yes       | The name of the child blocklet                                    |                                                                                                        | Final  |
 | `children.resolved`                        | String        | Yes       | URL to download the blocklet meta                                 |                                                                                                        | Final  |
-| `children.mountPoints`                     | Array         | No        | How to mount interface from child blocklet to root blocklet       |                                                                                                        | Final  |
-| `children.mountPoints.root`                | Object        | Yes       | The interface of the root blocklet                                |                                                                                                        | Final  |
-| `children.mountPoints.root.interfaceName`  | String        | Yes       | The name of the interface                                         | Should exist in the `interfaces` of the root blocklet                                                  | Final  |
-| `children.mountPoints.root.prefix`         | String        | Yes       | the prefix base on the endpoint of the interface                  |                                                                                                        | Final  |
-| `children.mountPoints.child`               | Object        | Yes       | The interface of the child blocklet                               |                                                                                                        | Final  |
-| `children.mountPoints.child.interfaceName` | String        | Yes       | The name of the interface                                         | Should exist in the `interfaces` of the child blocklet                                                 | Final  |
+| `children.mountPoint`                      | String        | Yes       | the prefix base on the endpoint of the interface                  |                                                                                                        | Final  |
+| `children.services`                        | Array         | No        | Which services should the child blocklet enabled                  | Same as `interface.services`                                                                                                      | Final  |
 
 > For integrity generating and verifying, we can leverage the [ssri](https://www.npmjs.com/package/ssri) package.
 
@@ -133,7 +134,7 @@ Following fields are appended to the blocklet meta after blocklet published to r
 
 | Metadata |                  |
 | -------- | ---------------: |
-| Version  |            1.2.2 |
+| Version  |            1.2.3 |
 | Status   | Work in progress |
 | Created  |       2020-11-03 |
-| Updated  |       2021-12-29 |
+| Updated  |       2022-02-18 |
