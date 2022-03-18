@@ -134,7 +134,7 @@ Following fields are appended to the blocklet meta after blocklet published to r
 
 | Metadata |                  |
 | -------- | ---------------: |
-| Version  |            1.2.3 |
+| Version  |            1.2.4 |
 | Status   | Work in progress |
 | Created  |       2020-11-03 |
-| Updated  |       2022-02-18 |
+| Updated  |       2022-03-18 |
