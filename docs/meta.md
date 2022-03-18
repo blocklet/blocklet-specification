@@ -74,7 +74,7 @@ This document describes how to define a blocklet that can be find/installed/mana
 | `environment.required`                     | String        | No        | Is the config required                                            |                                                                                                        | Final  |
 | `environment.default`                      | String        | No        | The default value of the config                                   |                                                                                                        | Final  |
 | `environment.secure`                       | Boolean       | No        | Whether the config is secure                                      | Secure environments are encrypted                                                                      | Final  |
-| `environment.public`                       | Boolean       | No        | Whether the config is public                                      | Public environments are visible to browser in public API                                               | Final  |
+| `environment.shared`                       | Boolean       | No        | Whether the config is visible to browser and can be passed to child blocklet | Default to "true"                                                                          | Final  |
 | `environment.validation`                   | String        | No        | How to validate the env                                           |                                                                                                        | TODO   |
 | `timeout`                                  | Object        | No        | Timeout configuration for blocklet                                |                                                                                                        | Final  |
 | `timeout.start`                            | Number        | No        | Blocklet start timeout in seconds                                 | Default to 10 seconds, max allowed is 600 seconds                                                      | Final  |
@@ -134,7 +134,7 @@ Following fields are appended to the blocklet meta after blocklet published to r
 
 | Metadata |                  |
 | -------- | ---------------: |
-| Version  |            1.2.3 |
+| Version  |            1.2.4 |
 | Status   | Work in progress |
 | Created  |       2020-11-03 |
-| Updated  |       2022-02-18 |
+| Updated  |       2022-03-18 |
