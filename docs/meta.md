@@ -82,6 +82,11 @@ This document describes how to define a blocklet that can be find/installed/mana
 | `requirements.server`                      | String        | No        | Required blocklet server version to run on                        | Default to ">=v1.5.15"                                                                                 | Final  |
 | `requirements.os`                          | String        | No        | Required os to run on                                             | Default to "\*", can be list of value from `process.platform`                                          | Final  |
 | `requirements.cpu`                         | String        | No        | Required cpu architecture to run on                               | Default to "\*", can be list of value from `process.arch`                                              | Final  |
+| `requirements.fuels`                       | Array         | No        | Tokens needed for app startup                                     | Default to empty                                                                                        | Final  |
+| `requirements.fuels.endpoint`              | String        | Yes       | The chain where the token is on                                   |                                                                                                        | Final  |
+| `requirements.fuels.address`              | String        | Yes       | The address of the token                                          |                                                                                                          | Final  |
+| `requirements.fuels.value`                | String        | Yes       | Required amount of the token                                      |                                                                                                          | Final  |
+| `requirements.fuels.reason`               | String        | Yes       | Why do the blocklet need the token                                 |                                                                                                        | Final  |
 | `payment`                                  | Object        | No        | A place holder for payment related requirements                   |                                                                                                        | Final  |
 | `payment.price`                            | Array         | No        | The price of the blocklet in tokens                               | Default to empty list                                                                                  | Final  |
 | `payment.price.value`                      | Number        | No        | The price of the blocklet in none-ABT Token                       |                                                                                                        | Final  |
@@ -134,7 +139,7 @@ Following fields are appended to the blocklet meta after blocklet published to r
 
 | Metadata |                  |
 | -------- | ---------------: |
-| Version  |            1.2.4 |
+| Version  |            1.2.5 |
 | Status   | Work in progress |
 | Created  |       2020-11-03 |
-| Updated  |       2022-03-18 |
+| Updated  |       2022-03-30 |
