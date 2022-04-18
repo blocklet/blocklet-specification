@@ -103,6 +103,11 @@ This document describes how to define a blocklet that can be find/installed/mana
 | `children.resolved`                        | String        | Yes       | URL to download the blocklet meta                                 |                                                                                                        | Final  |
 | `children.mountPoint`                      | String        | Yes       | the prefix base on the endpoint of the interface                  |                                                                                                        | Final  |
 | `children.services`                        | Array         | No        | Which services should the child blocklet enabled                  | Same as `interface.services`                                                                                                      | Final  |
+| `navigation`                               | Array         | No        | Define unified navigation for the blocklet                        |                                                                                                        | Final  |
+| `navigation.title`                         | String        | Yes       | Title of the navigation item                                      |                                                                                                        | Final  |
+| `navigation.link`                         | Array          | No        | Link of the navigation item                                       |                                                                                                        | Final  |
+| `navigation.child`                         | Array         | No        | The navigation item points to child blocklet                      |                                                                                                        | Final  |
+| `navigation.items`                         | Array         | No        | Secondary Navigation                                              | Same as `navigation`                                                                                    | Final  |
 
 > For integrity generating and verifying, we can leverage the [ssri](https://www.npmjs.com/package/ssri) package.
 
@@ -139,7 +144,7 @@ Following fields are appended to the blocklet meta after blocklet published to r
 
 | Metadata |                  |
 | -------- | ---------------: |
-| Version  |            1.2.5 |
+| Version  |            1.2.6 |
 | Status   | Work in progress |
 | Created  |       2020-11-03 |
-| Updated  |       2022-03-30 |
+| Updated  |       2022-04-18 |
