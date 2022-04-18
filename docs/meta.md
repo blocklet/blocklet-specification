@@ -108,6 +108,8 @@ This document describes how to define a blocklet that can be find/installed/mana
 | `navigation.link`                         | Array          | No        | Link of the navigation item                                       |                                                                                                        | Final  |
 | `navigation.child`                         | Array         | No        | The navigation item points to child blocklet                      |                                                                                                        | Final  |
 | `navigation.items`                         | Array         | No        | Secondary Navigation                                              | Same as `navigation`                                                                                    | Final  |
+| `theme`                                   | Object         | No        | Define unified theme for the blocklet                             |                                                                                                        | Final  |
+| `theme.background`                        | String         | No        | The background of the blocklet                                    |                                                                                                        | Final  |
 
 > For integrity generating and verifying, we can leverage the [ssri](https://www.npmjs.com/package/ssri) package.
 
