@@ -156,4 +156,4 @@ Following fields are appended to the blocklet meta after blocklet published to r
 | Version  |            1.2.7 |
 | Status   | Work in progress |
 | Created  |       2020-11-03 |
-| Updated  |       2022-04-18 |
+| Updated  |       2022-05-07 |
