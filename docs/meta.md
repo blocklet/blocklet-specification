@@ -105,11 +105,15 @@ This document describes how to define a blocklet that can be find/installed/mana
 | `capabilities.component`                   | Boolean       | No        | Can the blocklet become a component and be composed by other blocklets | Default to true                                                                                       | Final  |
 | `children`                                 | Array         | No        | Which blocklets to combine with                                   |                                                                                                        | Final  |
 | `children.name`                            | String        | Yes       | The custom id of the child blocklet                               |                                                                                                        | Final  |
-| `children.resolved`                        | String        | Yes       | URL to download the blocklet meta                                 |                                                                                                        | Final  |
+| `children.title`                           | String        | No       | the custom title of the child blocklet                             |                                                                                                        | Final  |
+| `children.description`                      | String        | No       | the custom description of the child blocklet                      |                                                                                                        | Final  |
 | `children.mountPoint`                      | String        | Yes       | the prefix base on the endpoint of the interface                  |                                                                                                        | Final  |
-| `children.title`                           | String        | No       | the custom title of the child blocklet                            |                                                                                                        | Final  |
-| `children.description`                      | String        | No       | the custom description of the child blocklet                     |                                                                                                        | Final  |
-| `children.services`                        | Array         | No        | Which services should the child blocklet enabled                  | Same as `interface.services`                                                                                                      | Final  |
+| `children.source`                          | Object        | Yes        | Bundle Source of the blocklet, configure by `url` or `store`     |                                                                                                        | Final  |
+| `children.source.url`                      | String \| Array | No       | URL to download the blocklet meta                                |                                                                                                        | Final  |
+| `children.source.store`                    | String \| Array | No       | The store url of blocklet                                        |                                                                                                        | Final  |
+| `children.source.name`                    | String         | No        | The name of the blocklet in store                                 |                                                                                                        | Final  |
+| `children.source.version`                 | String         | No        | The version of the blocklet in store                              |                                                                                                        | Final  |
+| `children.services`                        | Array         | No        | Which services should the child blocklet enabled                  | Same as `interface.services`                                                                            | Final  |
 | `navigation`                               | Array         | No        | Define unified navigation for the blocklet                        |                                                                                                        | Final  |
 | `navigation.title`                         | String        | Yes       | Title of the navigation item                                      |                                                                                                        | Final  |
 | `navigation.link`                         | Array          | No        | Link of the navigation item                                       |                                                                                                        | Final  |
@@ -153,7 +157,7 @@ Following fields are appended to the blocklet meta after blocklet published to r
 
 | Metadata |                  |
 | -------- | ---------------: |
-| Version  |            1.2.7 |
+| Version  |            1.2.8 |
 | Status   | Work in progress |
 | Created  |       2020-11-03 |
-| Updated  |       2022-05-07 |
+| Updated  |       2022-05-16 |
