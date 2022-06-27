@@ -115,12 +115,17 @@ This document describes how to define a blocklet that can be find/installed/mana
 | `children.source.version`                 | String         | No        | The version of the blocklet in store                              |                                                                                                        | Final  |
 | `children.services`                        | Array         | No        | Which services should the child blocklet enabled                  | Same as `interface.services`                                                                            | Final  |
 | `navigation`                               | Array         | No        | Define unified navigation for the blocklet                        |                                                                                                        | Final  |
-| `navigation.title`                         | String        | Yes       | Title of the navigation item                                      |                                                                                                        | Final  |
-| `navigation.link`                         | Array          | No        | Link of the navigation item                                       |                                                                                                        | Final  |
-| `navigation.child`                         | Array         | No        | The navigation item points to child blocklet                      |                                                                                                        | Final  |
+| `navigation.title`                         | String\|Object        | Yes       | Title of the navigation item                              | i18n is supported with type object, the shape is `{ en: xxx, zh: xxx }`                            | Final  |
+| `navigation.icon`                         | String         | No        | Icon of the navigation item                                       | e.g. `mdi:home` (iconify style), `https://xxx`, `/xxx` (local asset)                                       | Final  |
+| `navigation.link`                         | String          | No        | Link of the navigation item                                       |                                                                                                        | Final  |
+| `navigation.child`                         | String         | No        | The navigation item points to child blocklet                      |                                                                                                        | Final  |
+| `navigation.section`                       | Array         | No        | Where does the navigation appear on the page                       |  Values can be `header`, `footer`, `social`, `bottom`                                                                                                      | Final  |
 | `navigation.items`                         | Array         | No        | Secondary Navigation                                              | Same as `navigation`                                                                                    | Final  |
 | `theme`                                   | Object         | No        | Define unified theme for the blocklet                             |                                                                                                        | Final  |
-| `theme.background`                        | String         | No        | The background of the blocklet                                    |                                                                                                        | Final  |
+| `theme.background`                        | String\|Object         | No        | The background of the blocklet                             | the shape of background object is `{ header: xxx, footer: xxx, default: xxx }`                 | Final  |
+| `copyright`                        | Object         | No        | The coppyright of the blocklet                             |                                                                                                          | Draft  |
+| `copyright.owner`                        | String         | Yes        |                              |                                                                                                          | Draft  |
+| `copyright.year`                        | String\|Number         | No        |                              |                                                                                                          | Draft  |
 
 > For integrity generating and verifying, we can leverage the [ssri](https://www.npmjs.com/package/ssri) package.
 
@@ -157,7 +162,7 @@ Following fields are appended to the blocklet meta after blocklet published to r
 
 | Metadata |                  |
 | -------- | ---------------: |
-| Version  |            1.2.8 |
+| Version  |            1.2.9 |
 | Status   | Work in progress |
 | Created  |       2020-11-03 |
-| Updated  |       2022-05-16 |
+| Updated  |       2022-06-27 |
